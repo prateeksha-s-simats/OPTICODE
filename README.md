@@ -1,2 +1,2 @@
-# OPTICODE
-Intelligent Compiler Optimization Using DAG, Basic Blocks and CFG
+OptiCode - Intelligent Compiler Optimization Project
+
