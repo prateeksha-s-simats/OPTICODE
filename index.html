@@ -1,0 +1,225 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OptiCode | Intelligent Compiler Optimization</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-mark">O</span>
+      <span>Opti<span class="accent">Code</span></span>
+    </a>
+    <div class="topbar-right">
+      <span class="status-dot"></span>
+      Compiler Optimization Studio
+      <span class="version">v1.0</span>
+    </div>
+  </header>
+
+  <main class="shell">
+
+    <section class="hero">
+      <div class="eyebrow"><span></span> INTELLIGENT COMPILER OPTIMIZATION</div>
+      <h1>Write less. <span>Optimize more.</span></h1>
+      <p>
+        Analyze source code, identify optimization opportunities, generate
+        intermediate representations, and visualize compiler structures.
+      </p>
+      <div class="hero-tags">
+        <span>Basic Blocks</span>
+        <span>DAG Visualization</span>
+        <span>Control Flow Graph</span>
+        <span>Code Optimization</span>
+      </div>
+    </section>
+
+    <section class="workspace">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">01 / SOURCE CODE</span>
+          <h2>Code Analyzer</h2>
+        </div>
+        <span class="small-label">C-like source input</span>
+      </div>
+
+      <div class="editor-card">
+        <div class="editor-top">
+          <div class="window-dots">
+            <span></span><span></span><span></span>
+          </div>
+          <span id="fileName">main.c</span>
+          <span class="editor-language">C SOURCE</span>
+        </div>
+
+        <div class="editor-body">
+          <div class="line-numbers" id="lineNumbers">1</div>
+          <textarea id="sourceCode" spellcheck="false" autocapitalize="off">int main() {
+    int a = 10;
+    int b = 20;
+    int c = a + b;
+    int d = a + b;
+    int e = c * 1;
+    int result = d + e;
+    return result;
+}</textarea>
+        </div>
+
+        <div class="editor-footer">
+          <span id="inputHint">Enter your C-like code to begin analysis.</span>
+          <div class="editor-actions">
+            <button class="btn btn-light" id="clearBtn">Clear</button>
+            <button class="btn btn-primary" id="analyzeBtn">
+              Analyze Code <span>→</span>
+            </button>
+          </div>
+        </div>
+      </div>
+      <p id="message" class="message" aria-live="polite"></p>
+    </section>
+
+    <section class="results" id="results">
+      <div class="section-heading">
+        <div>
+          <span class="section-kicker">02 / ANALYSIS</span>
+          <h2>Optimization Overview</h2>
+        </div>
+        <span class="small-label">Analysis results</span>
+      </div>
+
+      <div class="metrics">
+        <article class="metric-card">
+          <div class="metric-icon blue">≡</div>
+          <span class="metric-label">Statements</span>
+          <strong id="statementCount">0</strong>
+          <small>Source statements</small>
+        </article>
+        <article class="metric-card">
+          <div class="metric-icon purple">▦</div>
+          <span class="metric-label">Basic Blocks</span>
+          <strong id="blockCount">0</strong>
+          <small>Generated blocks</small>
+        </article>
+        <article class="metric-card">
+          <div class="metric-icon orange">↻</div>
+          <span class="metric-label">Optimizations</span>
+          <strong id="repeatCount">0</strong>
+          <small>Improvements identified</small>
+        </article>
+        <article class="metric-card">
+          <div class="metric-icon green">%</div>
+          <span class="metric-label">Reduction</span>
+          <strong id="reduction">0%</strong>
+          <small>Statement reduction</small>
+        </article>
+      </div>
+
+      <div class="panel-grid">
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-icon blue">01</span>
+              <h3>Optimized Intermediate Code</h3>
+            </div>
+            <button class="copy-btn" data-copy="optimizedOutput">Copy</button>
+          </div>
+          <pre class="code-output" id="optimizedOutput">Your optimized code will appear here.</pre>
+        </article>
+
+        <article class="panel">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-icon purple">02</span>
+              <h3>Optimization Explanation</h3>
+            </div>
+          </div>
+          <div class="explanation" id="optimizationExplanation">
+            Run the analyzer to view optimization details.
+          </div>
+        </article>
+      </div>
+
+      <div class="section-heading visual-heading">
+        <div>
+          <span class="section-kicker">03 / STRUCTURAL ANALYSIS</span>
+          <h2>Compiler Visualizations</h2>
+        </div>
+      </div>
+
+      <div class="visual-grid">
+        <article class="panel visual-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-icon blue">03</span>
+              <h3>Basic Blocks</h3>
+            </div>
+          </div>
+          <div class="visual-output" id="blocksOutput">
+            <div class="empty-state">Basic blocks will appear here.</div>
+          </div>
+        </article>
+
+        <article class="panel visual-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-icon purple">04</span>
+              <h3>Control Flow Graph</h3>
+            </div>
+          </div>
+          <div class="visual-output graph-output" id="cfgOutput">
+            <div class="empty-state">Control flow graph will appear here.</div>
+          </div>
+        </article>
+
+        <article class="panel visual-panel dag-panel">
+          <div class="panel-heading">
+            <div>
+              <span class="panel-icon orange">05</span>
+              <h3>Directed Acyclic Graph (DAG)</h3>
+            </div>
+          </div>
+          <div class="visual-output graph-output" id="dagOutput">
+            <div class="empty-state">DAG visualization will appear here.</div>
+          </div>
+        </article>
+      </div>
+
+      <div class="panel original-panel">
+        <div class="panel-heading">
+          <div>
+            <span class="panel-icon gray">06</span>
+            <h3>Original Source Code</h3>
+          </div>
+          <button class="copy-btn" data-copy="originalOutput">Copy</button>
+        </div>
+        <pre class="code-output" id="originalOutput">Original source code will appear here.</pre>
+      </div>
+
+      <div class="note-panel">
+        <span class="note-symbol">i</span>
+        <div>
+          <strong>About this analyzer</strong>
+          <p>
+            This educational prototype demonstrates basic statement analysis,
+            common subexpression elimination, simple algebraic simplification,
+            basic block grouping, and illustrative CFG/DAG visualizations.
+            It is not a full C compiler.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>OptiCode</span>
+    <span>Intelligent Compiler Optimization System</span>
+    <span>Academic Project</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
